@@ -1,0 +1,11 @@
+.CardGrid {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .CardGrid {
+        width: 95%;
+    }
+}

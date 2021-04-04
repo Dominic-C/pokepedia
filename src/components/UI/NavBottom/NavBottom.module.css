@@ -1,0 +1,7 @@
+.NavBottom {
+    width: 100%;
+    justify-content: center;
+    position: fixed;
+    bottom: 10px;
+    text-align: center;
+}
