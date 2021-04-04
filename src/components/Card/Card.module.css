@@ -5,7 +5,7 @@
     display: inline-block;
     border: 1px solid #ccc;
     background-color: #ccc;
-    box-shadow: 5px 10px rgb(231, 231, 231);
+    box-shadow: 5px 10px  10px rgb(187, 187, 187);
     box-sizing: border-box;
     border-radius: 15px;
 }
@@ -45,7 +45,7 @@
 a {
     color: rgb(53, 53, 53);
 }
-
+/* 
 .normal {
     background-color: rgb(226, 226, 226);
 }
@@ -70,6 +70,10 @@ a {
     background-color: rgb(207, 124, 255);
 }
 
+.poison.bug {
+    background: linear-gradient(rgb(172, 255, 124), rgb(207, 124, 255));
+}
+
 .psychic {
     background-color: rgb(214, 143, 255);
 }
@@ -88,7 +92,7 @@ a {
 
 .grass {
     background-color: rgb(159, 255, 167);
-}
+} */
 
 
 @media (max-width: 900px) {

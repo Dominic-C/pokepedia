@@ -12,23 +12,24 @@ class CardGrid extends Component {
     }
 
     componentDidMount() {
-        console.log("called");
+        console.log(this.props);
         this.updateBatch();
     }
 
     componentDidUpdate(nextProps) {
         if (nextProps.batchURL !== this.props.batchURL) {
-            console.log("updating");
             this.updateBatch();
         }
     }
 
+    onCardClicked = (id) => {
+        this.props.history.push("/" + id);
+    }
+
     updateBatch = () => {
-        console.log("batch url: ", this.props.batchURL);
         axios.get(this.props.batchURL).then(response => {
             const allRequests = response.data.results.map(result => axios.get(result.url));
             axios.all(allRequests).then(axios.spread((...responses) => {
-                console.log(responses[0]);
                 const pokemon = responses.map(res => ({
                     id: res.data.id,
                     name: res.data.name,
@@ -46,12 +47,12 @@ class CardGrid extends Component {
         let cards = null;
         if (this.state.pokemon !== null) {
             cards = this.state.pokemon.map(pokemonItem =>
-                <Link to={"/" + pokemonItem.id} key={pokemonItem.id}>
                     <Card
+                        clicked={this.onCardClicked.bind(this, pokemonItem.id)}
+                        key={pokemonItem.id}
                         name={pokemonItem.name}
                         image={pokemonItem.imageURL}
                         types={pokemonItem.types}/>
-                </Link>
             );
         }
 

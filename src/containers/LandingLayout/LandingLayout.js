@@ -29,7 +29,7 @@ class LandingLayout extends Component {
 
     render() {
         return <div className={classes.LandingLayout}>
-            <CardGrid batchURL={this.state.batchURL} onBatchLoadedHandler={this.onBatchLoaded}/>
+            <CardGrid batchURL={this.state.batchURL} onBatchLoadedHandler={this.onBatchLoaded} {...this.props}/>
 
             <NavBottom 
                 previousHandler={this.updateCurrentBatchURL.bind(this, this.state.prevURL)}
