@@ -42,6 +42,10 @@
     margin: 0;
 }
 
+a {
+    color: rgb(53, 53, 53);
+}
+
 .normal {
     background-color: rgb(226, 226, 226);
 }

@@ -11,6 +11,10 @@ class LandingLayout extends Component {
         nextURL: null
     }
 
+    componentDidMount() {
+        console.log(this.props);
+    }
+
     onBatchLoaded = (prevURL, nextURL) => {
         this.setState({
             prevURL: prevURL,

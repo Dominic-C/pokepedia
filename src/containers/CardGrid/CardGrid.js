@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Card from "../../components/Card/Card";
-import classes from "./CardGrid.module.css"
+import classes from "./CardGrid.module.css";
+import { Link } from "react-router-dom";
 
 class CardGrid extends Component {
     state = {
@@ -16,7 +17,7 @@ class CardGrid extends Component {
     }
 
     componentDidUpdate(nextProps) {
-        if(nextProps.batchURL !== this.props.batchURL) {
+        if (nextProps.batchURL !== this.props.batchURL) {
             console.log("updating");
             this.updateBatch();
         }
@@ -35,7 +36,7 @@ class CardGrid extends Component {
                     types: res.data.types.map(type => type.type.name)
                 }));
 
-                this.setState({pokemon: pokemon, startPokemonIndex: responses[0].data.id, endPokemonIndex: responses[responses.length -1].data.id});
+                this.setState({ pokemon: pokemon, startPokemonIndex: responses[0].data.id, endPokemonIndex: responses[responses.length - 1].data.id });
                 this.props.onBatchLoadedHandler(response.data.previous, response.data.next)
             }))
         }).catch(err => console.log(err));
@@ -44,17 +45,18 @@ class CardGrid extends Component {
     render() {
         let cards = null;
         if (this.state.pokemon !== null) {
-            cards = this.state.pokemon.map(pokemonItem => 
-            <Card 
-                key={pokemonItem.id}
-                name={pokemonItem.name}
-                image={pokemonItem.imageURL}
-                types={pokemonItem.types}
-                />);
+            cards = this.state.pokemon.map(pokemonItem =>
+                <Link to={"/" + pokemonItem.id} key={pokemonItem.id}>
+                    <Card
+                        name={pokemonItem.name}
+                        image={pokemonItem.imageURL}
+                        types={pokemonItem.types}/>
+                </Link>
+            );
         }
 
         return <div className={classes.CardGrid}>
-            <h2>#{this.state.startPokemonIndex.toString().padStart(3,0)} to #{this.state.endPokemonIndex.toString().padStart(3,0)}</h2>
+            <h2>#{this.state.startPokemonIndex.toString().padStart(3, 0)} to #{this.state.endPokemonIndex.toString().padStart(3, 0)}</h2>
             {cards}
         </div>;
     }

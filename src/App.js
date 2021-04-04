@@ -1,11 +1,12 @@
 import './App.css';
 import LandingLayout from "./containers/LandingLayout/LandingLayout";
+import {Route, Switch} from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <LandingLayout/>
-    </div>
+    <Switch>
+      <Route path="/" exact component={LandingLayout}/>
+    </Switch>
   );
 }
 
