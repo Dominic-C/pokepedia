@@ -46,6 +46,7 @@ const card = (props) => {
             {props.types.map((type, index) => { return <p key={index} className={classes.TypeDescriptionItem}>{type}</p>
             })}
             </div>
+            <p className={classes.PokemonId}>#{props.id.toString().padStart(3, 0)}</p>
             <h3 className={classes.PokemonName}>{props.name}</h3>
         </div>
     )

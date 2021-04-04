@@ -1,0 +1,30 @@
+.Banner {
+    text-align: center;
+}
+
+.Name {
+    margin-top: 0;
+    padding-bottom: 15px;
+}
+
+.Image {
+    width: 30%;
+}
+
+@media (max-width: 1200) {
+    .Image {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .Image {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .Image {
+        width: 80%;
+    }
+}

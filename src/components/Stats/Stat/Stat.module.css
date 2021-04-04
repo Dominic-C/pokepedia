@@ -1,0 +1,6 @@
+.Stat {
+    display: flex;
+    width: 200px;
+    margin: 0 auto;
+    justify-content: space-between;  
+}

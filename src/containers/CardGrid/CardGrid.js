@@ -51,6 +51,7 @@ class CardGrid extends Component {
                         clicked={this.onCardClicked.bind(this, pokemonItem.id)}
                         key={pokemonItem.id}
                         name={pokemonItem.name}
+                        id={pokemonItem.id}
                         image={pokemonItem.imageURL}
                         types={pokemonItem.types}/>
             );
