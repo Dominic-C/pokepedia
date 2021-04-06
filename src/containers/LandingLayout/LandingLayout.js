@@ -6,34 +6,46 @@ import classes from "./LandingLayout.module.css";
 class LandingLayout extends Component {
     state = {
         // prev and next URLs
-        batchURL : "https://pokeapi.co/api/v2/pokemon/",
-        prevURL: null,
-        nextURL: null
+        batchURL: null,
+        prevPage: null,
+        nextPage: null
     }
 
     componentDidMount() {
-        console.log(this.props);
+        this.updateURLsAndPageNumbers();
+    }
+    
+    componentDidUpdate(nextProps) {
+        if (this.props.match.params.pageId !== nextProps.match.params.pageId) {
+            this.updateURLsAndPageNumbers();
+        }
     }
 
-    onBatchLoaded = (prevURL, nextURL) => {
+    updateURLsAndPageNumbers = () => {
+        const pageNum = this.props.match.params.pageId;
+        console.log("page num:", pageNum);
+        if (pageNum > 1) {
+            this.setState({batchURL : `https://pokeapi.co/api/v2/pokemon/?offset=${pageNum * 20 - 20}&limit=20`});
+            this.setState({
+                prevPage: +pageNum-1,
+            })
+        } else {
+            this.setState({batchURL : `https://pokeapi.co/api/v2/pokemon/`})
+        }
         this.setState({
-            prevURL: prevURL,
-            nextURL: nextURL
-        });
-    }
-
-    updateCurrentBatchURL(url) {
-        console.log("updateCurrentBatchURL clicked, value: ", url);
-        this.setState({batchURL: url});
+            nextPage: +pageNum+1
+        })
     }
 
     render() {
         return <div className={classes.LandingLayout}>
-            <CardGrid batchURL={this.state.batchURL} onBatchLoadedHandler={this.onBatchLoaded} {...this.props}/>
+            <CardGrid batchURL={this.state.batchURL} updatePreviousAndNextHandler={this.updatePreviousAndNextHandler} {...this.props}/>
 
             <NavBottom 
-                previousHandler={this.updateCurrentBatchURL.bind(this, this.state.prevURL)}
-                nextHandler={this.updateCurrentBatchURL.bind(this, this.state.nextURL)}/>
+                nextPageNum={this.state.nextPage}
+                prevPageNum={this.state.prevPage}
+                {...this.props}
+                />
             {/* <Button type="Previous" clicked={this.updateCurrentBatchURL.bind(this, this.state.prevURL)}>Previous</Button>
             <Button type="Next" clicked={this.updateCurrentBatchURL.bind(this, this.state.nextURL)}>Next</Button> */}
             </div>

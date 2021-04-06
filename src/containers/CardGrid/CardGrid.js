@@ -23,7 +23,9 @@ class CardGrid extends Component {
     }
 
     onCardClicked = (id) => {
-        this.props.history.push("/" + id);
+        this.props.history.push({
+            pathname: this.props.history.location.pathname + "/pokemon/" + id
+        });
     }
 
     updateBatch = () => {
@@ -38,7 +40,6 @@ class CardGrid extends Component {
                 }));
 
                 this.setState({ pokemon: pokemon, startPokemonIndex: responses[0].data.id, endPokemonIndex: responses[responses.length - 1].data.id });
-                this.props.onBatchLoadedHandler(response.data.previous, response.data.next)
             }))
         }).catch(err => console.log(err));
     }

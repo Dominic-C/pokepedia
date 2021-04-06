@@ -3,10 +3,13 @@ import Button from "../Button/Button";
 import classes from "./NavBottom.module.css";
 
 const navBottom = (props) => {
+
+    console.log("props in navbtm: ", props);
     return (
+        
         <div className={classes.NavBottom}>
-                <Button clicked={props.previousHandler}>Previous</Button>
-                <Button clicked={props.nextHandler}>Next</Button>
+                <Button clicked={() => props.history.push(`/page/${props.prevPageNum}`)}>Previous</Button>
+                <Button clicked={() => props.history.push(`/page/${props.nextPageNum}`)}>Next</Button>
         </div>
     );
 }

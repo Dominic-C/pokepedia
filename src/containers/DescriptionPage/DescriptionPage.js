@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import Banner from "../../components/Banner/Banner";
 import Stats from "../../components/Stats/Stats";
 import EvolutionChain from "../../components/EvolutionChain/EvolutionChain";
