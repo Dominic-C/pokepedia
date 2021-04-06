@@ -4,7 +4,6 @@ import classes from "./NavBottom.module.css";
 
 const navBottom = (props) => {
 
-    console.log("props in navbtm: ", props);
     return (
         
         <div className={classes.NavBottom}>

@@ -33,21 +33,25 @@ const card = (props) => {
     let style = null;
     // logic for gradients
     if (types.length >= 2) {
-        style = {background : `linear-gradient(${colours[types[0]]}, ${colours[types[1]]})`};
+        style = { background: `linear-gradient(${colours[types[0]]}, ${colours[types[1]]})` };
     } else {
-        style = {background: `${colours[types[0]]}`}
+        style = { background: `${colours[types[0]]}` }
     }
 
     // class array, then in className, do join
     return (
         <div style={style} className={activeClasses.join(" ")} onClick={props.clicked}>
-            <img src={props.image} alt={`${props.name}`}/>
-            <div className={classes.TypeDescription}>
-            {props.types.map((type, index) => { return <p key={index} className={classes.TypeDescriptionItem}>{type}</p>
-            })}
+            <img src={props.image} alt={`${props.name}`} />
+            <div className={classes.CardInfo}>
+
+                <h3 className={classes.PokemonName}>{props.name}</h3>
+                <p className={classes.PokemonId}>#{props.id.toString().padStart(3, 0)}</p>
+                <div className={classes.TypeDescription}>
+                    {props.types.map((type, index) => {
+                        return <p key={index} className={classes.TypeDescriptionItem}>{type}</p>
+                    })}
+                </div>
             </div>
-            <p className={classes.PokemonId}>#{props.id.toString().padStart(3, 0)}</p>
-            <h3 className={classes.PokemonName}>{props.name}</h3>
         </div>
     )
 }

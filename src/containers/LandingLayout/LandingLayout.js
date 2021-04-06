@@ -46,8 +46,6 @@ class LandingLayout extends Component {
                 prevPageNum={this.state.prevPage}
                 {...this.props}
                 />
-            {/* <Button type="Previous" clicked={this.updateCurrentBatchURL.bind(this, this.state.prevURL)}>Previous</Button>
-            <Button type="Next" clicked={this.updateCurrentBatchURL.bind(this, this.state.nextURL)}>Next</Button> */}
             </div>
     }
 }

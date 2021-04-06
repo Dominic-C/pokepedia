@@ -4,7 +4,7 @@
     text-align: center;
     display: inline-block;
     background-color: #ccc;
-    box-shadow: 5px 10px  10px rgba(36, 36, 36, 0.5);
+    box-shadow: 5px 10px 10px rgba(36, 36, 36, 0.5);
     box-sizing: border-box;
     border-radius: 15px;
 }
@@ -34,14 +34,17 @@
     margin: 10px 8px;
     padding: 5px 10px;
     background-color: rgba(255, 255, 255, 0.3);
-    color:rgb(32, 32, 32);
+    color: rgb(32, 32, 32);
     border-radius: 5px;
 }
 
-.PokemonName,
-.PokemonId {
+.PokemonName, .PokemonId {
     margin: 0;
     color: rgb(32, 32, 32);
+}
+    
+.PokemonName {
+    font-size: 1.5em;
 }
 
 .PokemonId {
@@ -58,11 +61,42 @@ a {
         margin: 15px;
         border-radius: 10px;
     }
-    
     .Card img {
         width: 150px;
         height: 150px;
         padding: 20px;
         clip-path: circle(85px at center);
     }
+}
+
+@media (max-width: 500px) {
+    .Card {
+        padding: 10px;
+        margin: 15px;
+        border-radius: 10px;
+        display: flex;
+    }
+    .Card img {
+        width: 130px;
+        height: 130px;
+        padding: 20px;
+        clip-path: circle(75px at center);
+    }
+    .CardInfo {
+        padding: 10px;
+        text-align: left;
+    }
+    .TypeDescription {
+        width: fit-content;
+        margin: 4px 0;
+        display: flex;
+    }
+    .TypeDescriptionItem {
+        margin: 0 10px 4px 0;
+    }
+
+    .PokemonId {
+        font-size: 1em;
+    }
+
 }
