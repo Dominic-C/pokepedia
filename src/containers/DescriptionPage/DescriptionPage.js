@@ -20,7 +20,12 @@ class DescriptionPage extends Component {
         return (<div>
             { this.state.pokemonData !== "" ?
                 <div>
-                    <Banner name={this.state.pokemonData.name} image={this.state.pokemonData.sprites['other']['official-artwork']['front_default']} types={this.state.pokemonData.types}/>
+                    <Banner 
+                        name={this.state.pokemonData.name}
+                        image={this.state.pokemonData.sprites['other']['official-artwork']['front_default']} 
+                        types={this.state.pokemonData.types}
+                        id={this.state.pokemonData.id}
+                        />
                     <Stats stats={this.state.pokemonData.stats} />
                     {/* <EvolutionChain speciesURL={this.state.pokemonData.species.url}/> */}
                 </div>

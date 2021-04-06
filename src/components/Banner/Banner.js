@@ -1,4 +1,5 @@
 import React from "react";
+import Types from "../Types/Types";
 import classes from "./Banner.module.css"
 
 const banner = (props) => {
@@ -35,7 +36,12 @@ const banner = (props) => {
     return (
         <div style={style} className={classes.Banner}>
             <img className={classes.Image} src={props.image}/>
-            <h2 className={classes.Name}>{props.name}</h2>
+            <h1 className={classes.Name}>{props.name}</h1>
+            <h2 className={classes.Name}>#{props.id.toString().padStart(3, 0)}</h2>
+            {/* {props.types.map(type => {
+                return <p className={classes.TypeDescriptionItem}>{type.type.name}</p>
+            })} */}
+            {/* <Types types={props.types}/> */}
         </div>
     )
 }

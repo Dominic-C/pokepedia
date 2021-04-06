@@ -36,7 +36,7 @@ class CardGrid extends Component {
                     id: res.data.id,
                     name: res.data.name,
                     imageURL: res.data.sprites.other['official-artwork']['front_default'],
-                    types: res.data.types.map(type => type.type.name)
+                    types: res.data.types
                 }));
 
                 this.setState({ pokemon: pokemon, startPokemonIndex: responses[0].data.id, endPokemonIndex: responses[responses.length - 1].data.id });
@@ -59,8 +59,10 @@ class CardGrid extends Component {
         }
 
         return <div className={classes.CardGrid}>
-            <h2>#{this.state.startPokemonIndex.toString().padStart(3, 0)} to #{this.state.endPokemonIndex.toString().padStart(3, 0)}</h2>
+            <h2>Pokemon #{this.state.startPokemonIndex.toString().padStart(3, 0)} to #{this.state.endPokemonIndex.toString().padStart(3, 0)}</h2>
+            <div className={classes.Grid}>
             {cards}
+            </div>
         </div>;
     }
 }

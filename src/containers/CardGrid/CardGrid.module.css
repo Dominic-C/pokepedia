@@ -1,11 +1,22 @@
-.CardGrid {
+.Grid {
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto ;
     text-align: center;
+    padding-top: 80px;
+}
+
+.CardGrid h2 {
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.8);
+    z-index: 3;
 }
 
 @media (max-width: 900px) {
-    .CardGrid {
+    .Grid {
         width: 95%;
     }
 }

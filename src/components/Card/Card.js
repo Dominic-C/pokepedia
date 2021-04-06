@@ -1,13 +1,9 @@
 import React from "react";
+import Types from "../Types/Types";
 import classes from "./Card.module.css";
 
 const card = (props) => {
-    const activeClasses = [classes.Card];
-    const types = [];
-    for (let type of props.types) {
-        activeClasses.push(classes[type]);
-        types.push(type);
-    }
+    const types = props.types.map(type => { return type.type.name})
 
     const colours = {
         normal: '#A8A77A',
@@ -40,17 +36,13 @@ const card = (props) => {
 
     // class array, then in className, do join
     return (
-        <div style={style} className={activeClasses.join(" ")} onClick={props.clicked}>
+        <div style={style} className={classes.Card} onClick={props.clicked}>
             <img src={props.image} alt={`${props.name}`} />
             <div className={classes.CardInfo}>
 
                 <h3 className={classes.PokemonName}>{props.name}</h3>
                 <p className={classes.PokemonId}>#{props.id.toString().padStart(3, 0)}</p>
-                <div className={classes.TypeDescription}>
-                    {props.types.map((type, index) => {
-                        return <p key={index} className={classes.TypeDescriptionItem}>{type}</p>
-                    })}
-                </div>
+                <Types types={props.types}/>
             </div>
         </div>
     )

@@ -1,0 +1,25 @@
+.Types {
+    width: fit-content;
+    margin: auto;
+    display: flex;
+}
+
+.Type {
+    margin: 10px 8px;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgb(32, 32, 32);
+    border-radius: 5px;
+}
+
+
+@media (max-width: 500px) {
+    .Types {
+        width: fit-content;
+        margin: 4px 0;
+        display: flex;
+    }
+    .Type {
+        margin: 0 10px 4px 0;
+    }
+}
