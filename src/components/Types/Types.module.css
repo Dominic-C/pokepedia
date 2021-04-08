@@ -2,6 +2,7 @@
     width: fit-content;
     margin: auto;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .Type {
@@ -20,6 +21,6 @@
         display: flex;
     }
     .Type {
-        margin: 0 10px 4px 0;
+        margin: 0 10px 8px 0;
     }
 }

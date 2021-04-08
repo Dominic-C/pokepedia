@@ -85,6 +85,7 @@ a {
     .CardInfo {
         padding: 10px;
         text-align: left;
+        display: inline-block;
     }
     .TypeDescription {
         width: fit-content;
